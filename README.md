@@ -15,14 +15,14 @@ Enter...Play Up!, the app that allows you to connect with people who share the s
 ## Wire Frame(front end):
 <p>
 
-<img src="play-up-project-api/app/play up@2x.png" alt="play up front end wire frame"/>
+<img src="./app/play-up@2x.png" alt="play up front end wire frame"/>
 
 </p>
 
 ## Wire Frame(back end):
 <p>
 
-<img src="play-up-project-api/app/play-up-db.png" alt="play up back end wire frame"/>
+<img src="./app/play-up-db.png" alt="play up back end wire frame"/>
 
 </p>
 
