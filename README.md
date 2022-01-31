@@ -13,10 +13,10 @@ Enter...Play Up!, the app that allows you to connect with people who share the s
 #### As a user, I can view and comment on the games that I've added to my list on the discussion board
 
 ## Wire Frame(front end):
-<img src="play-up-api/app/play up@2x.png" alt="play up front end wire frame"/>
+<img src="play-up-project-api/app/play up@2x.png" alt="play up front end wire frame"/>
 
 ## Wire Frame(back end):
-<img src="play-up-api/app/play-up-db.png" alt="play up back end wire frame"/>
+<img src="play-up-project-api/app/play-up-db.png" alt="play up back end wire frame"/>
 
 
 
