@@ -18,35 +18,25 @@ ActiveRecord::Schema.define(version: 2022_01_31_214727) do
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.bigint "game_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_categories_on_game_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "game_id"
+    t.index ["game_id"], name: "index_comments_on_game_id"
   end
 
   create_table "equipment", force: :cascade do |t|
     t.string "title"
     t.bigint "game_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_equipment_on_game_id"
   end
 
   create_table "games", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "category"
     t.string "location"
     t.integer "num_of_players"
-    t.string "equipment"
-    t.bigint "comment_id"
     t.string "start_time_and_date"
-    t.index ["comment_id"], name: "index_games_on_comment_id"
-    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

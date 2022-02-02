@@ -10,26 +10,33 @@
 puts "seeding users"
 
 15.times do
-    user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password_digest: Faker::Internet.password(min_length: 10, max_length: 20), location: "#{Faker::Address.city, Faker::Address.state}" )
+    user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password_digest: Faker::Internet.password(min_length: 10, max_length: 20), location: "#{Faker::Address.city}, #{Faker::Address.state}")
 end
 
 puts "done seeding users"
 
+puts "seeding games"
+
+game1 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
+game2 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
+game3 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
+game4 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
+game5 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
+
+puts "done seeding games"
+
 puts "seeding comments"
 
-comment1 = Comment.create(comment: "I'm so excited to play!")
-comment2 = Comment.create(comment: "Do we need to bring anything else?")
-comment3 = Comment.create(comment: "Do you all want to get food afterwards?")
-comment4 = Comment.create(comment: "Should we get there early to set up?")
-comment5 = Comment.create(comment: "How long do you think the game will go?")
-comment6 = Comment.create(comment: "I'll bring another ball!")
-comment7 = Comment.create(comment: "I can bring an extra pair of shin guards if anybody needs them.")
-comment8 = Comment.create(comment: "Feel free to call me 555-305-6908 for any other questions!")
-comment9 = Comment.create(comment: "Are dogs allowed at this park?")
-comment10 = Comment.create(comment: "LET'S DO THIS!!!!")
-
-hello
-
+comment1 = Comment.create(comment: "I'm so excited to play!", game_id: Game.all.sample.id)
+comment2 = Comment.create(comment: "Do we need to bring anything else?", game_id: Game.all.sample.id)
+comment3 = Comment.create(comment: "Do you all want to get food afterwards?", game_id: Game.all.sample.id)
+comment4 = Comment.create(comment: "Should we get there early to set up?", game_id: Game.all.sample.id)
+comment5 = Comment.create(comment: "How long do you think the game will go?", game_id: Game.all.sample.id)
+comment6 = Comment.create(comment: "I'll bring another ball!", game_id: Game.all.sample.id)
+comment7 = Comment.create(comment: "I can bring an extra pair of shin guards if anybody needs them.", game_id: Game.all.sample.id)
+comment8 = Comment.create(comment: "Feel free to call me 555-305-6908 for any other questions!", game_id: Game.all.sample.id)
+comment9 = Comment.create(comment: "Are dogs allowed at this park?", game_id: Game.all.sample.id)
+comment10 = Comment.create(comment: "LET'S DO THIS!!!!", game_id: Game.all.sample.id)
 
 puts "done seeding comments"
 
@@ -59,21 +66,11 @@ equipment5 = Equipment.create(title: "stopwatch", game_id: Game.all.sample.id)
 
 puts "done seeding equipment"
 
-puts "seeding games"
-
-game1 = Game.create(user_id: User.all.sample.id, comment_id: Comment.all.sample.id, equipment: Equipment.all.sample.title, location: "#{Faker::Address.city, Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), category: Category.all.sample.title, num_of_players: Faker::Number.between(from: 1, to: 10))
-game2 = Game.create(user_id: User.all.sample.id, comment_id: Comment.all.sample.id, equipment: Equipment.all.sample.title, location: "#{Faker::Address.city, Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), category: Category.all.sample.title, num_of_players: Faker::Number.between(from: 1, to: 10))
-game3 = Game.create(user_id: User.all.sample.id, comment_id: Comment.all.sample.id, equipment: Equipment.all.sample.title, location: "#{Faker::Address.city, Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), category: Category.all.sample.title, num_of_players: Faker::Number.between(from: 1, to: 10))
-game4 = Game.create(user_id: User.all.sample.id, comment_id: Comment.all.sample.id, equipment: Equipment.all.sample.title, location: "#{Faker::Address.city, Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), category: Category.all.sample.title, num_of_players: Faker::Number.between(from: 1, to: 10))
-game5 = Game.create(user_id: User.all.sample.id, comment_id: Comment.all.sample.id, equipment: Equipment.all.sample.title, location: "#{Faker::Address.city, Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), category: Category.all.sample.title, num_of_players: Faker::Number.between(from: 1, to: 10))
-
-puts "done seeding games"
-
 puts "seeding users games"
 
 10.times do
 
-user_game = UserGame.create(game_id: Game.all.sample.id, user_id: User.all.sample.id)
+user_game = UsersGame.create(game_id: Game.all.sample.id, user_id: User.all.sample.id)
 
 end
 

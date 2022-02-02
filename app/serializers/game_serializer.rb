@@ -1,3 +1,5 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :location, :start_time_and_date, :num_of_players
+
+  has_many :users
 end
