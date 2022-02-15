@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    skip_before_action :authorized, only: :create
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
@@ -8,13 +8,16 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find(params[:id])
-        render json: user, status: :ok
-    end
+        if current_user
+          render json: current_user, status: :ok
+        else
+          render json: "No current session stored", status: :unauthorized
+        end
+      end
 
     def create
         user = User.create!(user_params)
-        render json: user, status: :created
+        render json: user
     end
 
     def update
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :location, :password, :email)
+        params.permit(:first_name, :last_name, :location, :password, :email, :url)
     end
 
     def render_unprocessable_entity_response(e)

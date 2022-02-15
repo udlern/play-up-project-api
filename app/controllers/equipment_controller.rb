@@ -32,7 +32,7 @@ class EquipmentController < ApplicationController
     private
 
     def equipment_params
-        params.permit(:title)
+        params.permit(:equipment_title)
     end
 
     def render_unprocessable_entity_response(e)

@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
     private
 
     def category_params
-        params.permit(:title)
+        params.permit(:category_title)
     end
 
     def render_unprocessable_entity_response(e)

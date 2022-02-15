@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :comments
     has_many :users_games
     has_many :games, through: :users_games
     
@@ -8,5 +9,6 @@ class User < ApplicationRecord
     validates :first_name, presence: true
     validates :last_name, presence: true
     validates :password, presence: true
+    validates :url, presence: true
     validates :password, length: { in: 5..10 }
 end

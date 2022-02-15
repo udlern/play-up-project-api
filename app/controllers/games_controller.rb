@@ -32,7 +32,7 @@ class GamesController < ApplicationController
     private
 
     def game_params
-        params.permit(:equipment, :start_time_and_date, :location, :comment_id, :user_id, :num_of_players, :category)
+        params.permit(:equipment_title, :start_time_and_date, :location, :comment_id, :user_id, :num_of_players, :category_title)
     end
 
     def render_unprocessable_entity_response(e)

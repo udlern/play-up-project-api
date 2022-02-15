@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.permit(:comment)
+        params.permit(:comment, :user_id)
     end
 
     def render_unprocessable_entity_response(e)
