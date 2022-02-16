@@ -10,15 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_01_31_214727) do
+ActiveRecord::Schema[7.0].define(version: 2022_01_31_202626) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categories", force: :cascade do |t|
-    t.string "category_title"
-    t.bigint "game_id"
-    t.index ["game_id"], name: "index_categories_on_game_id"
-  end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -26,16 +20,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_01_31_214727) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "equipment", force: :cascade do |t|
-    t.string "equipment_title"
-    t.bigint "game_id"
-    t.index ["game_id"], name: "index_equipment_on_game_id"
-  end
-
   create_table "games", force: :cascade do |t|
     t.string "location"
     t.integer "num_of_players"
     t.string "start_time_and_date"
+    t.string "game_name"
+    t.string "equipment"
+    t.integer "hosted_by"
   end
 
   create_table "users", force: :cascade do |t|

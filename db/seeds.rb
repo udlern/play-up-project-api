@@ -32,12 +32,11 @@ end
 puts "done seeding users"
 
 puts "seeding games"
-
-game1 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
-game2 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
-game3 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
-game4 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
-game5 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10))
+game1 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10), game_name: "Fun Baseball at the park", equipment: "baseball", hosted_by: User.all.sample.id)
+game2 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10), game_name: "Beach Volleyball at sunset", equipment: "volleyball, net", hosted_by: User.all.sample.id)
+game3 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10), game_name: "Frisbee with my dog, Coco", equipment: "frisbee", hosted_by: User.all.sample.id)
+game4 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10), game_name: "Basketball", equipment: "basketball", hosted_by: User.all.sample.id)
+game5 = Game.create(location: "#{Faker::Address.city}, #{Faker::Address.state}", start_time_and_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), num_of_players: Faker::Number.between(from: 1, to: 10), game_name: "Tennis in the morning with breakfast", equipment: "tennis ball, bagels, orange juice", hosted_by: User.all.sample.id)
 
 puts "done seeding games"
 
@@ -56,60 +55,15 @@ comment10 = Comment.create(comment: "LET'S DO THIS!!!!", user_id: User.all.sampl
 
 puts "done seeding comments"
 
-puts "seeding categories"
-
-category_arr = [
-    "Football",
-    "Baseball",
-    "Volleyball",
-    "Basketball",
-    "Soccer",
-    "Rugby",
-    "Tennis",
-    "Frisbee", 
-    "Badminton",
-    "Hockey"
-]
-
-i = 0
-10.times do
-   i = i + 1
-   category = Category.create(category_title: category_arr[i-1], game_id: Game.all.sample.id)
-end
-
-category1 = Category.create(category_title: "Football", game_id: Game.all.sample.id)
-category2 = Category.create(category_title: "Soccer", game_id: Game.all.sample.id)
-category3 = Category.create(category_title: "Baseball", game_id: Game.all.sample.id)
-category4 = Category.create(category_title: "Basketball", game_id: Game.all.sample.id)
-category5 = Category.create(category_title: "Volleyball", game_id: Game.all.sample.id)
-category6 = Category.create(category_title: "Football", game_id: Game.all.sample.id)
-category7 = Category.create(category_title: "Soccer", game_id: Game.all.sample.id)
-category8 = Category.create(category_title: "Baseball", game_id: Game.all.sample.id)
-category9 = Category.create(category_title: "Basketball", game_id: Game.all.sample.id)
-category10 = Category.create(category_title: "Volleyball", game_id: Game.all.sample.id)
-
-puts "done seeding categories"
-
-puts "seeding equipment"
-
-equipment1 = Equipment.create(equipment_title: "ball", game_id: Game.all.sample.id)
-equipment2 = Equipment.create(equipment_title: "cones", game_id: Game.all.sample.id)
-equipment3 = Equipment.create(equipment_title: "jerseys", game_id: Game.all.sample.id)
-equipment4 = Equipment.create(equipment_title: "scoreboard", game_id: Game.all.sample.id)
-equipment5 = Equipment.create(equipment_title: "stopwatch", game_id: Game.all.sample.id)
-
-
-puts "done seeding equipment"
-""
-puts "seeding users games"
+puts "seeding users game"
 
 10.times do
-
-user_game = UsersGame.create(game_id: Game.all.sample.id, user_id: User.all.sample.id)
-
+    users_game = UsersGame.create(user_id: User.all.sample.id, game_id: Game.all.sample.id)
 end
 
-puts "done seeding users games"
+puts "done seeding users game"
+
+
 
 
 

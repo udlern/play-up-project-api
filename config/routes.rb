@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  
-  resources :equipment
-  resources :categories
+
   resources :comments
   resources :games
   resources :users_games
