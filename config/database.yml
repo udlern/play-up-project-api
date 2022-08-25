@@ -80,7 +80,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: play_up_api_production
-  username: play_up_api
-  password: <%= ENV["PLAY_UP_API_DATABASE_PASSWORD"] %>
+  # <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: play_up_api_production
+  # username: play_up_api
+  # password: <%= ENV["PLAY_UP_API_DATABASE_PASSWORD"] %>
