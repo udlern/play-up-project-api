@@ -8,8 +8,7 @@ Bundler.require(*Rails.groups)
 
 module PlayUpApi
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+  
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -25,9 +24,6 @@ module PlayUpApi
     config.api_only = true
 
     config.load_defaults 6.1
-
-    # This is set in apps generated with the --api flag, and removes session/cookie middleware
-    config.api_only = false
     
 
     # ▾ Must add these lines! ▾
