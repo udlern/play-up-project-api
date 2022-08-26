@@ -81,7 +81,7 @@ test:
 #
 production:
   # <<: *default
-  url: postgres://chhkwgqvehhkeh:226aa570657c50f88b44977e0fb775688125e8ecb6f209e8425c431373c6bfbc@ec2-34-227-135-211.compute-1.amazonaws.com:5432/de04m5p4m0oems
+  url: <%= ENV['DATABASE_URL'] %>
   # database: play_up_api_production
   # username: play_up_api
   # password: <%= ENV["PLAY_UP_API_DATABASE_PASSWORD"] %>
